@@ -1,4 +1,3 @@
-﻿
 #include <iostream>
 using namespace std;
 
@@ -55,25 +54,36 @@ void sortirovkaVstavkoy(int arr[])
 // Сортировка выбором
 void sortirovkaViborom(int arr[])
 {
-
-
-
-
-
-
+    int min;
+    int buf;
+    for (int i = 0; i < 10; i++)
+    {
+        min = i;
+        for (int j = i + 1; j < 10; j++)
+        {
+            min = (arr[j] < arr[min]) ? j : min;
+            if (i!=min)
+            {
+                buf = arr[i];
+                arr[i] = arr[min];
+                arr[min] = buf;
+            }
+        }
+    }
 }
+
 
 int main()
 {
+
+    int arr[10] = {2,4,3,1,5,9,7,8,10,6};
+
     
-    int arr[10];
-
-
-    sortirovkaVstavkoy(arr);
+    sortirovkaViborom(arr);
 
     // Вывод массива
     for (int i = 0; i < 10; i++)
     {
-        cout << arr[i] << "\n";
+        cout << arr[i];
     }
 }
